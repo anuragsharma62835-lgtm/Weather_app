@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
-import img from './assets/image.jpg';
+import {  useState } from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  const api_key = "enter you key here";
+  const api_key = import.meta.env.VITE_WEATHER_API_KEY;
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("");
 
@@ -40,7 +39,9 @@ function App() {
               <p>description: {weather.weather[0].main}</p>
             </div>
           ) : (
-            <div><h2>enter city name...</h2></div>
+            <div>
+              <h2>enter city name...</h2>
+            </div>
           )}
         </div>
       </div>
